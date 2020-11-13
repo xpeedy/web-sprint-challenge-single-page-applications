@@ -4,9 +4,15 @@ import {useRouteMatch} from "react-router-dom"
 
 export default function PizzaForm(){
 
+    function onsubmit(){
+        submit();
+
+    }
+
     return(
-        <form>
-            <label>Name
+        <form className="form-container" onSubmit={onsubmit}>
+            <h3>Name</h3>
+            <label>
                 <input type="text" name="name" value="" 
                 ></input>
             </label>

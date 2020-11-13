@@ -4,7 +4,7 @@ import {Route, Link, Switch, Router} from "react-router-dom";
 import axios from "axios";
 import Home from "./components/Home";
 import PizzaForm from "./components/PizzaForm";
-import PizzaDetails from "./components/pizzaDetails";
+import PizzaDetails from "./components/PizzaDetails";
 
 
 // axios
@@ -25,6 +25,7 @@ const App = () => {
         <div className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/PizzaForm">Build your pizza</Link>
+          <Link to="/PizzaDetails"></Link>
         </div>
       </nav>
       <Switch>
@@ -34,8 +35,11 @@ const App = () => {
         <Route path="/PizzaForm" component={PizzaForm}>
           <PizzaForm />
         </Route>
+        <Route path="/PizzaDetails" component={PizzaDetails}>
+          <PizzaDetails />
+        </Route>
       </Switch>
-      {/* <PizzaForm></PizzaForm> */}
+      
     </div>
   );
 };
