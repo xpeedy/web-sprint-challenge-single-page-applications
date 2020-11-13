@@ -24,11 +24,11 @@ const App = () => {
         <h1>Lambda Eats</h1>
         <div className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="/Build-pizza">Build your pizza</Link>
+          <Link to="/PizzaForm">Build your pizza</Link>
         </div>
       </nav>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact component={Home}>
           <Home />
         </Route>
         <Route path="/PizzaForm" component={PizzaForm}>
