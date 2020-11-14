@@ -1,5 +1,6 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
+// import PizzaForm from "./PizzaForm"
 
 
 
@@ -12,9 +13,11 @@ export default function Home(){
 
     return(
         <div className="home-wrapper">
+            
             <button onClick={routeToBuild} className="buil-pizza-btn">
                 Build your pizza!
             </button>
+            
         </div>
     )
 }
