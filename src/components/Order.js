@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function PizzaDetails() {
+export default function OrderDetails() {
 
     return(
         <div>

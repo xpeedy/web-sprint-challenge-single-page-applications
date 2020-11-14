@@ -63,8 +63,8 @@ export default function PizzaForm(props){
                 <input type="checkbox" name="extraCheese" checked={values.extraCheese} onChange={onChange}></input>
             
             <h3>Choice OF Substitute</h3>
-            <label>
-                <input type="checkbox" name="" value="" 
+            <label>Gluten Free Crost
+                <input type="checkbox" name="substitute" value={values.substitute} 
                 ></input>
             </label>
             <h3>Special Instruction</h3>

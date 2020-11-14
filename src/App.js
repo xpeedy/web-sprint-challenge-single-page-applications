@@ -6,7 +6,7 @@ import schema from "./validation/formSchema"
 import axios from "axios";
 import Home from "./components/Home";
 import PizzaForm from "./components/PizzaForm";
-import PizzaDetails from "./components/OrderDetails";
+import PizzaDetails from "./components/Order";
 
 
 const initialValues ={
@@ -108,7 +108,7 @@ const App = () => {
         <h1>Lambda Eats</h1>
         <div className="nav-links">
           <Link to="/" className="homeLink">Home</Link>
-          <Link to="/PizzaForm" className="fomrLink">Build your pizza</Link>
+          <Link to="/PizzaForm" className="formLink">Build your pizza</Link>
           <Link to="/OrderDetails"></Link>
         </div>
       </nav>
@@ -124,7 +124,7 @@ const App = () => {
           change={inputChange}
           />
         </Route>
-        <Route path="/PizzaDetails" component={PizzaDetails}>
+        <Route path="/Orders" component={PizzaDetails}>
           <PizzaDetails
           />
         </Route>

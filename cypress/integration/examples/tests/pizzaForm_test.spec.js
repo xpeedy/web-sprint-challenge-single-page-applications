@@ -8,7 +8,6 @@ describe("build pizza App", () => {
 
     const nameInput = () => cy.get('input[name="name"]');
     // const specialInput = () => cy.get('input[name="specialIns"]');
-    const addOrderBtn = () => cy.get('#addOrderBtn');
 
     const pepperoniInput = () => cy.get('input[name="pepperoni"]');
     const italianSaugeInput = () => cy.get('input[name="italianSauge"]');
@@ -24,10 +23,10 @@ describe("build pizza App", () => {
         expect(1 + 2).to.equal(3);
     });
 
-    // it("can click form link", () => {
-    //   formLink()
-    //   .click()
-    // });
+    it("can click form link", () => {
+      formLink()
+      .click()
+    });
 
     it("type name text", () => {
       nameInput()
