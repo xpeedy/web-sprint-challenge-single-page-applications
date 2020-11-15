@@ -6,7 +6,7 @@ import schema from "./validation/formSchema"
 import axios from "axios";
 import Home from "./components/Home";
 import PizzaForm from "./components/PizzaForm";
-import PizzaDetails from "./components/Order";
+import OrderDetails from "./components/Order";
 
 
 const initialValues ={
@@ -116,7 +116,7 @@ const App = () => {
         <Route path="/" exact component={Home}>
           <Home />
         </Route>
-        <Route path="/PizzaForm" component={PizzaForm}>
+        <Route path="/PizzaForm" component={OrderDetails}>
           <PizzaForm 
           values={values}
           error={errorValues}
@@ -124,8 +124,8 @@ const App = () => {
           change={inputChange}
           />
         </Route>
-        <Route path="/Orders" component={PizzaDetails}>
-          <PizzaDetails
+        <Route path="/Orders" component={OrderDetails}>
+          <OrderDetails
           />
         </Route>
       </Switch>
