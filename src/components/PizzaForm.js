@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom"
+import Styled from "styled-components";
 
 
 
@@ -25,11 +26,13 @@ export default function PizzaForm(props){
     
 
     return(
+        <FormContainer>
         <form className="form-container" onSubmit={onSubmit}>
             <h3>Name</h3>
             <label>
                 <input type="text" name="name" value={values.name} onChange={onChange}
-                ></input>
+            ></input>
+            {error.name ? <div>{error.name}</div> : ""}
             {/* ////////// DROPDOWN ////////// */}
             </label>
             <h3>Pizza Size</h3>
@@ -40,6 +43,7 @@ export default function PizzaForm(props){
               <option value="medium">medium</option>
               <option value="large">large</option>
               </select>
+              {error.size ? <div>{error.size}</div> : ""}
 
             {/* ////////// RADIO BUTTONS ////////// */}
             </label>
@@ -55,6 +59,7 @@ export default function PizzaForm(props){
                 <br/>
             <label htmlFor="buffalo">Buffalo</label>
                 <input type="radio" name="sauce" value="buffalo" checked={values.sauce === "buffalo"} onChange={onChange}></input>
+            {error.sauce ? <div>{error.sauce}</div> : ""}
 
              {/* ////////// CHECKBOXES ////////// */}   
             <h3>Add Toppings</h3>
@@ -91,5 +96,19 @@ export default function PizzaForm(props){
             </label>
             <button onClick={routeToOrderDetails} className="addOrderBtn">Add to Order</button>
         </form>
+        </FormContainer>
     )
 };
+
+const FormContainer = Styled.div`
+/* border: solid black; */
+padding: 4%;
+display: flex;
+justify-content: center;
+
+
+.addOrderBtn {
+    width: 70%;
+}
+
+`

@@ -141,13 +141,22 @@ const AppContainer = Styled.div`
   .nav-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
   }
 
   .nav-links {
-    border: solid black;
-    width: 90%
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    text-decoration: none;
+    color: white;
+  }
+
+  h1 {
+    color: white;
   }
 
 `
