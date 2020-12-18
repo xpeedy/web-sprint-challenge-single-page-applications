@@ -7,7 +7,8 @@ export default yup.object().shape({
     .required("name is required")
     .min(2, "name must be at least 2 characters" ),
     size: yup
-    .string(),
+    .string()
+    .required("Select a size please"),
     specialIns: yup
     .string(),
     sauce: yup

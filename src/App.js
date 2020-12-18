@@ -1,5 +1,5 @@
 import React, {useState, useEffect}from "react";
-import {Route, Link, Switch,} from "react-router-dom";
+import {Route, Link, Switch} from "react-router-dom";
 import * as yup from "yup";
 import schema from "./validation/formSchema"
 
@@ -7,7 +7,7 @@ import axios from "axios";
 import Home from "./components/Home";
 import PizzaForm from "./components/PizzaForm";
 import OrderDetails from "./components/Order";
-
+import Styled from "styled-components"
 
 const initialValues ={
   name: "",
@@ -44,7 +44,7 @@ const App = () => {
 
   const getOrders = () => {
     axios
-    .get("http://localhost:3000/orders")
+    .get("http://localhost:3000")
     .then((res) => {
       setOrders(res.data);
     })
@@ -56,7 +56,7 @@ const App = () => {
 
   const postNewOrder = (newOrder) => {
     axios
-    .post("http://localhost:3000/orders", newOrder)
+    .post("http://localhost:3000/OrdersDetails", newOrder)
     .then((res) => {
       setOrders([res.data, ...orders]);
       setValues(initialValues);
@@ -83,6 +83,7 @@ const App = () => {
       ...values,[name]: value,
     })
   }
+
   
     const Formsubmit = () => {
       const newOrder = {
@@ -93,6 +94,7 @@ const App = () => {
           substitute: "",
           specialIns: values.specialIns.trim(),
       }
+      
       postNewOrder(newOrder)
       console.log(newOrder)
   };
@@ -103,8 +105,8 @@ const App = () => {
    
 
   return (
-    <div className = "App">
-      <nav>
+    <AppContainer className = "App">
+      <nav className="nav-container">
         <h1>Lambda Eats</h1>
         <div className="nav-links">
           <Link to="/" className="homeLink">Home</Link>
@@ -116,7 +118,7 @@ const App = () => {
         <Route path="/" exact component={Home}>
           <Home />
         </Route>
-        <Route path="/PizzaForm" component={OrderDetails}>
+        <Route path="/PizzaForm" component={PizzaForm}>
           <PizzaForm 
           values={values}
           error={errorValues}
@@ -124,12 +126,28 @@ const App = () => {
           change={inputChange}
           />
         </Route>
-        <Route path="/Orders" component={OrderDetails}>
+        <Route path="/OrderDetails" component={OrderDetails}>
           <OrderDetails
           />
         </Route>
       </Switch>
-    </div>
+    </AppContainer>
   );
 };
 export default App;
+
+
+const AppContainer = Styled.div`
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-links {
+    border: solid black;
+    width: 90%
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+`

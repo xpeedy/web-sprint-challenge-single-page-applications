@@ -1,5 +1,5 @@
 import React from "react";
-// import {useRouteMatch} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 
@@ -17,6 +17,12 @@ export default function PizzaForm(props){
         const correctValue = type === "checkbox" ? checked : value;
         change(name, correctValue);
       };
+    
+    const history = useHistory();
+      const routeToOrderDetails = () => {
+        history.push("/OrderDetails")
+    }
+    
 
     return(
         <form className="form-container" onSubmit={onSubmit}>
@@ -34,6 +40,7 @@ export default function PizzaForm(props){
               <option value="medium">medium</option>
               <option value="large">large</option>
               </select>
+
             {/* ////////// RADIO BUTTONS ////////// */}
             </label>
             <h3>Choice of Sauce</h3>
@@ -48,6 +55,7 @@ export default function PizzaForm(props){
                 <br/>
             <label htmlFor="buffalo">Buffalo</label>
                 <input type="radio" name="sauce" value="buffalo" checked={values.sauce === "buffalo"} onChange={onChange}></input>
+
              {/* ////////// CHECKBOXES ////////// */}   
             <h3>Add Toppings</h3>
             <label htmlFor="pepperoni">Pepperoni</label>
@@ -72,7 +80,16 @@ export default function PizzaForm(props){
                 <input type="text" name="specialIns" value={values.specialIns} onChange={onChange}></input>
             </label>
             <br/>
-            <button className="addOrderBtn">Add to Order</button>
+            <label>
+                <p>Qty</p>
+                <select name="Qty">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </label>
+            <button onClick={routeToOrderDetails} className="addOrderBtn">Add to Order</button>
         </form>
     )
 };

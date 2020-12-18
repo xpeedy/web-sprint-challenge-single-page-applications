@@ -1,6 +1,6 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
-// import PizzaForm from "./PizzaForm"
+import { useHistory } from "react-router-dom";
+import Styled from "styled-components";
 
 
 
@@ -8,16 +8,30 @@ export default function Home(){
     const history = useHistory();
     const routeToBuild = () => {
         console.log(history, "HISTORY");
-        history.push("/Build-pizza")
+        history.push("/PizzaForm")
     }
 
     return(
-        <div className="home-wrapper">
-            
+        <MainDiv className="home-wrapper">
+            <div>
+           
             <button onClick={routeToBuild} className="buil-pizza-btn">
                 Build your pizza!
             </button>
-            
-        </div>
+            </div>
+        </MainDiv>
     )
 }
+
+
+const MainDiv = Styled.div`
+    background : url("https://assets.bonappetit.com/photos/5f9c346d93f8075300cb785b/8:5/w_4048,h_2530,c_limit/Basically-Pizza.jpg");
+    padding : 10%;
+    display : flex;
+    justify-content : center;
+
+    button {
+        padding : 4%;
+        width : 100%;
+    }
+`
